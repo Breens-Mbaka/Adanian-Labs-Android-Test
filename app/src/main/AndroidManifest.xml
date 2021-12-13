@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdaninaLabsAndroidTets">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.ImageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

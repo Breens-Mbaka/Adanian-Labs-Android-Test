@@ -17,6 +17,7 @@ buildscript {
         logging_interceptor_version = "4.9.0"
         dagger_hilt= "2.38.1"
         lifecycle_version = "2.4.0"
+        lottie_version = "3.4.0"
 
         //Testing dependencies
         junit_test_version = "1.1.3"
