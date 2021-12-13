@@ -1,8 +1,8 @@
 package com.breens.adaninalabsandroidtets.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -11,15 +11,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.breens.adaninalabsandroidtets.R
 import com.breens.adaninalabsandroidtets.databinding.FragmentSearchBinding
 import com.breens.adaninalabsandroidtets.ui.adapters.ImageAdapter
+import com.breens.adaninalabsandroidtets.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment: Fragment(R.layout.fragment_search) {
+class SearchFragment : Fragment(R.layout.fragment_search) {
 
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private lateinit var imageAdapter: ImageAdapter
+    private val TAG = "SearchFragment"
+
 
     private val viewModel: ImagesViewModel by viewModels()
 
@@ -41,9 +44,26 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
     }
 
     private fun setUpUi() {
-        viewModel.searched.observe(viewLifecycleOwner) { result ->
-            imageAdapter.differ.submitList(result.hits)
-        }
+        viewModel.searched.observe(viewLifecycleOwner, { result ->
+            when (result) {
+                is Resource.Success -> {
+                    hideProgressBar()
+                    result.data.let { searchResponse ->
+                        imageAdapter.differ.submitList(searchResponse?.hits)
+                    }
+                }
+                is Resource.Error -> {
+                    hideProgressBar()
+                    result.message?.let { message ->
+                        Log.e(TAG, "An error occurred: $message")
+                    }
+                }
+
+                is Resource.Loading -> {
+                    showProgressBar()
+                }
+            }
+        })
     }
 
     private fun setUpImageRecyclerView() {
@@ -95,5 +115,13 @@ class SearchFragment: Fragment(R.layout.fragment_search) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun hideProgressBar() {
+        binding.progressBar.visibility = View.GONE
+    }
+
+    private fun showProgressBar() {
+        binding.progressBar.visibility = View.VISIBLE
     }
 }

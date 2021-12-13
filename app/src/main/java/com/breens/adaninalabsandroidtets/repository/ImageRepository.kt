@@ -6,10 +6,7 @@ import com.breens.adaninalabsandroidtets.data.ImagesDatabase
 import com.breens.adaninalabsandroidtets.data.ImagesResponse
 import com.breens.adaninalabsandroidtets.util.Constants.Companion.API_KEY
 import com.breens.adaninalabsandroidtets.util.networkBoundResource
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
+import retrofit2.Response
 import javax.inject.Inject
 
 class ImageRepository @Inject constructor(
@@ -35,8 +32,8 @@ class ImageRepository @Inject constructor(
         }
     )
 
-    suspend fun searchImages(searchQuery: String) : ImagesResponse {
-        return api.fetchImages(API_KEY, searchQuery)
+    suspend fun searchImages(searchQuery: String): Response<ImagesResponse> {
+        return api.searchImages(API_KEY, searchQuery)
     }
 
 }

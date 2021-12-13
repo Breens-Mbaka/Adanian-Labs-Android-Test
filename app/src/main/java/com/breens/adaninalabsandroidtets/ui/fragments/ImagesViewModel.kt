@@ -8,6 +8,7 @@ import com.breens.adaninalabsandroidtets.util.Constants.Companion.API_KEY
 import com.breens.adaninalabsandroidtets.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,13 +16,23 @@ class ImagesViewModel @Inject constructor(
     private val repository: ImageRepository
 ) : ViewModel() {
     var images = repository.getImages().asLiveData()
-    private val searchedImages: MutableLiveData<ImagesResponse> = MutableLiveData()
-    var searched: MutableLiveData<ImagesResponse> = searchedImages
+    private val searchedImages: MutableLiveData<Resource<ImagesResponse>> = MutableLiveData()
+    var searched: MutableLiveData<Resource<ImagesResponse>> = searchedImages
 
 
     fun fetchImages(searchQuery: String) = viewModelScope.launch {
+        searchedImages.postValue(Resource.Loading())
         val response = repository.searchImages(searchQuery)
-        searchedImages.postValue(response)
+        searchedImages.postValue(handleImageResponse(response))
     }
 
+
+    private fun handleImageResponse(response: Response<ImagesResponse>): Resource<ImagesResponse> {
+        if (response.isSuccessful) {
+            response.body()?.let { imagesResponse ->
+                return Resource.Success(imagesResponse)
+            }
+        }
+        return Resource.Error(response.message())
+    }
 }

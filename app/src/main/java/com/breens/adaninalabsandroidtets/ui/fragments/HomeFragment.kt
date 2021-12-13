@@ -48,7 +48,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             binding.apply {
                 progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
                 textviewError.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
-                textviewError.text = result.throwable?.localizedMessage
+                textviewError.text = result.message
             }
         }
     }
