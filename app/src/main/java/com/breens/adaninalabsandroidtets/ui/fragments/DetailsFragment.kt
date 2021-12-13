@@ -9,7 +9,9 @@ import androidx.navigation.fragment.navArgs
 import coil.load
 import com.breens.adaninalabsandroidtets.R
 import com.breens.adaninalabsandroidtets.databinding.FragmentDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailsFragment:Fragment(R.layout.fragment_details) {
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
@@ -31,7 +33,7 @@ class DetailsFragment:Fragment(R.layout.fragment_details) {
 
     private fun setUpUi() {
         val details = args.imageDetails
-        val imageUrl = details.previewUrl
+        val imageUrl = details.webformatURL
         val user = details.user
         val viewNumber = details.views.toString()
         val downloadNumber = details.downloads.toString()
@@ -42,9 +44,9 @@ class DetailsFragment:Fragment(R.layout.fragment_details) {
                 crossfade(true)
             }
             userName.text = user
-            views.text = viewNumber
-            downloads.text = downloadNumber
-            comments.text = commentNumber
+            views.text = "Views: " + viewNumber
+            downloads.text = "Downloads: " + downloadNumber
+            comments.text = "Comments: " + commentNumber
         }
     }
 

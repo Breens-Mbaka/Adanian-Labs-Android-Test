@@ -1,21 +1,25 @@
 package com.breens.adaninalabsandroidtets.ui.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.breens.adaninalabsandroidtets.R
 import com.breens.adaninalabsandroidtets.databinding.FragmentHomeBinding
 import com.breens.adaninalabsandroidtets.ui.adapters.ImageAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var imageAdapter: ImageAdapter
+
+    private val viewModel: ImagesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,15 +32,23 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpImageClickListener()
         setUpImageRecyclerView()
+        setUpImageClickListener()
+        setUpUi()
+        setHasOptionsMenu(true)
+    }
+
+    private fun setUpUi() {
+        viewModel.images.observe(viewLifecycleOwner) { images ->
+            imageAdapter.differ.submitList(images.hits)
+        }
     }
 
     private fun setUpImageRecyclerView() {
         imageAdapter = ImageAdapter()
         binding.imagesRecyclerview.apply {
             adapter = imageAdapter
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }
 
@@ -50,6 +62,30 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 bundle
             )
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+
+        inflater.inflate(R.menu.app_bar_menu, menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    binding.imagesRecyclerview.scrollToPosition(0)
+                    viewModel.fetchImages(query)
+                    searchView.clearFocus()
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+
+        })
     }
 
     override fun onDestroyView() {

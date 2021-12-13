@@ -33,14 +33,14 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val image = differ.currentList[position]
-        val imageUrl = image.previewUrl
+        val imageUrl = image.webformatURL
         val user = image.user
         holder.binding.apply {
             imageView.load(imageUrl) {
-                transformations(RoundedCornersTransformation(15f))
+                transformations(RoundedCornersTransformation(10f))
                 crossfade(true)
             }
-            userName.text = user
+            userName.text = "User: " + user
         }
         holder.itemView.setOnClickListener {
             onItemClickListener?.let {

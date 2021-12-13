@@ -6,7 +6,7 @@ data class Image(
     val id : Int,
     val type : String,
     val tags : String,
-    val previewUrl : String,
+    val webformatURL : String,
     val views: Int,
     val downloads : Int,
     val likes : Int,
