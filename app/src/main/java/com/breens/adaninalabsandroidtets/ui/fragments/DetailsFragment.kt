@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import coil.load
 import com.breens.adaninalabsandroidtets.R
 import com.breens.adaninalabsandroidtets.databinding.FragmentDetailsBinding
 
@@ -30,8 +31,20 @@ class DetailsFragment:Fragment(R.layout.fragment_details) {
 
     private fun setUpUi() {
         val details = args.imageDetails
-        binding.apply {
+        val imageUrl = details.previewUrl
+        val user = details.user
+        val viewNumber = details.views.toString()
+        val downloadNumber = details.downloads.toString()
+        val commentNumber = details.comments.toString()
 
+        binding.apply {
+            imageView.load(imageUrl){
+                crossfade(true)
+            }
+            userName.text = user
+            views.text = viewNumber
+            downloads.text = downloadNumber
+            comments.text = commentNumber
         }
     }
 
