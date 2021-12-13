@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.breens.adaninalabsandroidtets.R
 import com.breens.adaninalabsandroidtets.databinding.FragmentHomeBinding
 import com.breens.adaninalabsandroidtets.ui.adapters.ImageAdapter
@@ -28,6 +29,15 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpImageClickListener()
+        setUpImageRecyclerView()
+    }
+
+    private fun setUpImageRecyclerView() {
+        imageAdapter = ImageAdapter()
+        binding.imagesRecyclerview.apply {
+            adapter = imageAdapter
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        }
     }
 
     private fun setUpImageClickListener() {
@@ -40,5 +50,10 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
                 bundle
             )
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
