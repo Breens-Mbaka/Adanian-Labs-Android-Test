@@ -9,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ImageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_AdaninaLabsAndroidTets)
         setContentView(R.layout.activity_image)
     }
 }

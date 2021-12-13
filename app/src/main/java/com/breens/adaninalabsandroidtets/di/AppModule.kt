@@ -3,7 +3,8 @@ package com.breens.adaninalabsandroidtets.di
 import android.app.Application
 import androidx.room.Room
 import com.breens.adaninalabsandroidtets.api.PixabayApi
-import com.breens.adaninalabsandroidtets.data.ImagesDatabase
+import com.breens.adaninalabsandroidtets.data.local.ImagesDatabase
+import com.breens.adaninalabsandroidtets.repositories.ImageRepository
 import com.breens.adaninalabsandroidtets.util.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides

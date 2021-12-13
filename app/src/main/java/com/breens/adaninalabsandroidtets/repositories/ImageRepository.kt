@@ -1,9 +1,9 @@
-package com.breens.adaninalabsandroidtets.repository
+package com.breens.adaninalabsandroidtets.repositories
 
 import androidx.room.withTransaction
 import com.breens.adaninalabsandroidtets.api.PixabayApi
-import com.breens.adaninalabsandroidtets.data.ImagesDatabase
-import com.breens.adaninalabsandroidtets.data.ImagesResponse
+import com.breens.adaninalabsandroidtets.data.local.ImagesDatabase
+import com.breens.adaninalabsandroidtets.data.remote.ImagesResponse
 import com.breens.adaninalabsandroidtets.util.Constants.Companion.API_KEY
 import com.breens.adaninalabsandroidtets.util.networkBoundResource
 import retrofit2.Response

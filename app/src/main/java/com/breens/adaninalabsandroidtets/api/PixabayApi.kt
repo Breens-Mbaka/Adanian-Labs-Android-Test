@@ -1,11 +1,10 @@
 package com.breens.adaninalabsandroidtets.api
 
-import com.breens.adaninalabsandroidtets.data.ImagesResponse
+import com.breens.adaninalabsandroidtets.data.remote.ImagesResponse
 import com.breens.adaninalabsandroidtets.util.Constants.Companion.API_KEY
 import com.breens.adaninalabsandroidtets.util.Constants.Companion.DOGS_SEARCH_QUERY
 import com.breens.adaninalabsandroidtets.util.Constants.Companion.ENDPOINT
 import retrofit2.Response
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Query
 

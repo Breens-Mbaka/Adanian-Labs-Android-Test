@@ -1,7 +1,8 @@
-package com.breens.adaninalabsandroidtets.data
+package com.breens.adaninalabsandroidtets.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.breens.adaninalabsandroidtets.data.Image
 
 @Database(
     entities = [Image::class],

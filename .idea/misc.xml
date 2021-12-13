@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_cloud_download_24.xml" value="0.265625" />
         <entry key="app/src/main/res/drawable/image_shadow.xml" value="0.265625" />
         <entry key="app/src/main/res/drawable/search_bar_bg.xml" value="0.265625" />
+        <entry key="app/src/main/res/drawable/splash_image.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/activity_image.xml" value="0.12132725430597771" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.25842696629213485" />

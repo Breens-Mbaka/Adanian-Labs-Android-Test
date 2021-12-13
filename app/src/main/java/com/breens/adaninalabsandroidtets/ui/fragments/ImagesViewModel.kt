@@ -1,10 +1,8 @@
 package com.breens.adaninalabsandroidtets.ui.fragments
 
 import androidx.lifecycle.*
-import com.breens.adaninalabsandroidtets.api.PixabayApi
-import com.breens.adaninalabsandroidtets.data.ImagesResponse
-import com.breens.adaninalabsandroidtets.repository.ImageRepository
-import com.breens.adaninalabsandroidtets.util.Constants.Companion.API_KEY
+import com.breens.adaninalabsandroidtets.data.remote.ImagesResponse
+import com.breens.adaninalabsandroidtets.repositories.ImageRepository
 import com.breens.adaninalabsandroidtets.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

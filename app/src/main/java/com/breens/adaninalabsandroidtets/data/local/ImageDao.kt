@@ -1,6 +1,7 @@
-package com.breens.adaninalabsandroidtets.data
+package com.breens.adaninalabsandroidtets.data.local
 
 import androidx.room.*
+import com.breens.adaninalabsandroidtets.data.Image
 import kotlinx.coroutines.flow.Flow
 
 @Dao
