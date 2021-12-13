@@ -1,19 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragments.DetailsFragment">
 
-
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/home_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:contentDescription="@string/image_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:contentDescription="@string/image_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/image_shadow"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/nunito_bold"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:drawableStartCompat="@drawable/ic_baseline_person_outline_24"
+                app:layout_constraintBottom_toBottomOf="@+id/view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/view"
+                app:layout_constraintVertical_bias="0.94"
+                tools:text="Harry Porter"
+                tools:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/infoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/more_info_text"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/views"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/nunito"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_remove_red_eye_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/infoTitle"
+                tools:text="21 views" />
+
+            <TextView
+                android:id="@+id/downloads"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/nunito"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_cloud_download_24"
+                app:layout_constraintStart_toStartOf="@id/views"
+                app:layout_constraintTop_toBottomOf="@+id/views"
+                tools:text="100 downloads" />
+
+            <TextView
+                android:id="@+id/comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/nunito"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_comment_24"
+                app:layout_constraintStart_toStartOf="@id/views"
+                app:layout_constraintTop_toBottomOf="@+id/downloads"
+                tools:text="2 comments" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
