@@ -1,5 +1,7 @@
 package com.breens.adaninalabsandroidtets.data
 
+import java.io.Serializable
+
 data class Image(
     val id : Int,
     val type : String,
@@ -10,4 +12,4 @@ data class Image(
     val likes : Int,
     val comments : Int,
     val user: String
-)
+): Serializable

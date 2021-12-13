@@ -22,5 +22,9 @@
         android:id="@+id/detailsFragment"
         android:name="com.breens.adaninalabsandroidtets.ui.fragments.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="imageDetails"
+            app:argType="com.breens.adaninalabsandroidtets.data.Image" />
+    </fragment>
 </navigation>
