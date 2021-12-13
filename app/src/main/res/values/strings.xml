@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">AdaninaLabsAndroidTets</string>
+    <string name="app_name">AdanianLabsAndroidTest</string>
+    <string name="image_description">Image of a dog</string>
+    <string name="user_label">User: </string>
 </resources>
