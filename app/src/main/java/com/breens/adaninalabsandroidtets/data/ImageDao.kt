@@ -15,7 +15,7 @@ interface ImageDao {
     fun getAllImages(): Flow<List<Image>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertImage(images: List<Image>)
+    suspend fun insertImages(images: List<Image>)
 
     @Query("DELETE FROM images")
     suspend fun deleteAllImages()

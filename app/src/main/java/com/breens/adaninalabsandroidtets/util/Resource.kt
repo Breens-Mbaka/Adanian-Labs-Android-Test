@@ -1,8 +1,11 @@
 package com.breens.adaninalabsandroidtets.util
 
-sealed class Resource<T>{
-    class Success<T>(data: T) : Resource<T>()
-    class Loading<T>(data: T? = null) : Resource<T>()
-    class Error<T>(throwable: Throwable, data: T? = null) : Resource<T>()
+sealed class Resource<T>(
+    val data: T? = null,
+    val throwable: Throwable? = null
+){
+    class Success<T>(data: T) : Resource<T>(data)
+    class Loading<T>(data: T? = null) : Resource<T>(data)
+    class Error<T>(throwable: Throwable, data: T? = null) : Resource<T>(data, throwable)
 
 }

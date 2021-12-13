@@ -4,21 +4,20 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.breens.adaninalabsandroidtets.R
-import com.breens.adaninalabsandroidtets.databinding.FragmentHomeBinding
+import com.breens.adaninalabsandroidtets.databinding.FragmentSearchBinding
 import com.breens.adaninalabsandroidtets.ui.adapters.ImageAdapter
-import com.breens.adaninalabsandroidtets.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class SearchFragment: Fragment(R.layout.fragment_search) {
 
-    private var _binding: FragmentHomeBinding? = null
+
+    private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private lateinit var imageAdapter: ImageAdapter
 
@@ -29,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -42,20 +41,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setUpUi() {
-        viewModel.images.observe(viewLifecycleOwner) { result ->
-            imageAdapter.differ.submitList(
-                result.data)
-            binding.apply {
-                progressBar.isVisible = result is Resource.Loading && result.data.isNullOrEmpty()
-                textviewError.isVisible = result is Resource.Error && result.data.isNullOrEmpty()
-                textviewError.text = result.throwable?.localizedMessage
-            }
+        viewModel.searched.observe(viewLifecycleOwner) { result ->
+            imageAdapter.differ.submitList(result.hits)
         }
     }
 
     private fun setUpImageRecyclerView() {
         imageAdapter = ImageAdapter()
-        binding.imagesRecyclerview.apply {
+        binding.searchRecyclerview.apply {
             adapter = imageAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
@@ -67,7 +60,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 putSerializable("imageDetails", it)
             }
             findNavController().navigate(
-                R.id.action_homeFragment_to_detailsFragment,
+                R.id.action_searchFragment_to_detailsFragment,
                 bundle
             )
         }
@@ -76,18 +69,27 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.app_bar_menu, menu)
-    }
+        inflater.inflate(R.menu.app_bar_menu_search, menu)
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id= item.itemId
-        if (id == R.id.action_search) {
-            Toast.makeText(context, "Clicked yeeey!", Toast.LENGTH_LONG).show()
-            findNavController().navigate(
-                R.id.action_homeFragment_to_searchFragment
-            )
-        }
-        return super.onOptionsItemSelected(item)
+        val searchItem = menu.findItem(R.id.action_search)
+        searchItem.expandActionView()
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    binding.searchRecyclerview.scrollToPosition(0)
+                    viewModel.fetchImages(query)
+                    searchView.clearFocus()
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+
+        })
     }
 
     override fun onDestroyView() {
