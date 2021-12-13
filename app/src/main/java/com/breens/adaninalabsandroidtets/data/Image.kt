@@ -9,5 +9,5 @@ data class Image(
     val downloads : Int,
     val likes : Int,
     val comments : Int,
-    val User: String
+    val user: String
 )
