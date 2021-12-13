@@ -11,17 +11,17 @@ import com.breens.adaninalabsandroidtets.R
 import com.breens.adaninalabsandroidtets.databinding.FragmentHomeBinding
 import com.breens.adaninalabsandroidtets.ui.adapters.ImageAdapter
 
-class HomeFragment: Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    lateinit var imageAdapter: ImageAdapter
+    private lateinit var imageAdapter: ImageAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
