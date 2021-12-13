@@ -1,6 +1,9 @@
 package com.breens.adaninalabsandroidtets.di
 
+import android.app.Application
+import androidx.room.Room
 import com.breens.adaninalabsandroidtets.api.PixabayApi
+import com.breens.adaninalabsandroidtets.data.ImagesDatabase
 import com.breens.adaninalabsandroidtets.util.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -29,6 +32,12 @@ object AppModule {
     @Singleton
     fun providePixabayApi(retrofit: Retrofit) : PixabayApi =
         retrofit.create(PixabayApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideImagesDatabase(app: Application): ImagesDatabase =
+        Room.databaseBuilder(app, ImagesDatabase::class.java, "images_database")
+            .build()
 
 }
 
