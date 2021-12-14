@@ -81,7 +81,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id= item.itemId
         if (id == R.id.action_search) {
-            Toast.makeText(context, "Clicked yeeey!", Toast.LENGTH_LONG).show()
             findNavController().navigate(
                 R.id.action_homeFragment_to_searchFragment
             )
