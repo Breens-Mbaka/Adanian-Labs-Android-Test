@@ -14,7 +14,7 @@ To run the project you should have the following tools
 ### Screenshots
 #### Home/Details Screens
 <img src="/images/home.png" width="260">&emsp;
-<img src="/images/Details.png" width="260">
+<img src="/images/details.png" width="260">
 
 #### Search Screen
 <img src="/images/search.png" width="260">
@@ -25,7 +25,7 @@ The app is build with MVVM clean architecture to allow separation of concerns on
 allowing our data to not be destroyed over configuration changes.
 
 ### Libraries
-* Retrofit - A Type-safe HTTP client for android and java which simplfies consuming RESTful APIs.
+* Retrofit - A Type-safe HTTP client for android and java which simplifies consuming RESTful APIs.
 * Gson - Converts JSON to Java/Kotlin objects.
 * OkHttp-logging-interceptor - Makes it easy to log OkHttp network traffic
 * Coil - Image loader library for android
