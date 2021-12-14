@@ -31,6 +31,8 @@ allowing our data to not be destroyed over configuration changes
 ```
 <img src="/images/mvvm_architecture.png">
 
+https://user-images.githubusercontent.com/72180010/145916765-dab037e5-6cb1-4c7c-8674-4dfb62e380d3.mp4
+
 ### Libraries
 * Retrofit - A Type-safe HTTP client for android and java which simplifies consuming RESTful APIs.
 * Gson - Converts JSON to Java/Kotlin objects.
