@@ -29,7 +29,7 @@ allowing our data to not be destroyed over configuration changes
 2.Update old data with new data from Pixabay API
 3.When to make a request to the Pixabay API
 ```
-<img src="/images/mvvm_architecture.png" width="260">
+<img src="/images/mvvm_architecture.png">
 
 ### Libraries
 * Retrofit - A Type-safe HTTP client for android and java which simplifies consuming RESTful APIs.
