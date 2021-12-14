@@ -18,8 +18,18 @@ To run the project you should have the following tools
 <img src="/images/search.png" width="260">
 
 ### Architecture
-The app is build with MVVM clean architecture to allow separation of concerns one benefit being
-allowing our data to not be destroyed over configuration changes.
+The app is build with MVVM architecture to allow separation of concerns one benefit being
+allowing our data to not be destroyed over configuration changes
+
+### Caching Strategy
+*MVVM architecture allowed the use of the Repository Pattern to act as mediator between th remote and local cache data
+*The Local cache is where the UI reads and observes data from. And using NetworkBoundResource its possible to set conditions where data is
+```
+1.Data is saved to the local database
+2.Update old data with new data from Pixabay API
+3.When to make a request to the Pixabay API
+```
+<img src="/images/mvvm_architecture.png" width="260">
 
 ### Libraries
 * Retrofit - A Type-safe HTTP client for android and java which simplifies consuming RESTful APIs.
