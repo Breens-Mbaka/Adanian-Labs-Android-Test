@@ -1,4 +1,4 @@
-# RapidScore
+# Imagely
 This app consumes The Pixabay Api to fetch and display a list of images, The app uses MVVM architecture.
 <br>
 
@@ -12,13 +12,10 @@ To run the project you should have the following tools
 * Internet connection
 
 ### Screenshots
-#### Home/Details Screens
+#### Home/Details/Search Screens
 <img src="/images/home.png" width="260">&emsp;
 <img src="/images/details.png" width="260">
-
-#### Search Screen
 <img src="/images/search.png" width="260">
-
 
 ### Architecture
 The app is build with MVVM clean architecture to allow separation of concerns one benefit being
