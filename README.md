@@ -38,7 +38,7 @@ allowing our data to not be destroyed over configuration changes
 https://user-images.githubusercontent.com/72180010/145916765-dab037e5-6cb1-4c7c-8674-4dfb62e380d3.mp4
 
 ### Libraries
-* Navigation Components - To implement the Single Activity approach since fragments are lightweight
+* Navigation Components - To implement the Single Activity approach since fragments are lightweight than activities and allows easy passing of data between arguments in a type safe way
 * Retrofit - A Type-safe HTTP client for android and java which simplifies consuming RESTful APIs.
 * Gson - Converts JSON to Java/Kotlin objects.
 * OkHttp-logging-interceptor - Makes it easy to log OkHttp network traffic
