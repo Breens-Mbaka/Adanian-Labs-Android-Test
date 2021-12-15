@@ -1,5 +1,9 @@
 # Imagely
-This app consumes The Pixabay Api to fetch and display a list of images, The app uses MVVM architecture.
+This app consumes The Pixabay Api to fetch and display a list of images, The app uses MVVM architecture to allow separation of the UI from the data benefits being
+* make the data survive device configuration changes
+* allow testability(unit test) of the data layer
+* improve codebase robustability by catching all edge error cases
+* Also it's easier to maintain and scale the app over time
 <br>
 
 Minimum API level supported: 21
