@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">AdaninaLabsAndroidTets</string>
+    <string name="app_name">AdanianLabsAndroidTest</string>
+    <string name="image_description">Image of a dog</string>
+    <string name="user_label">User: </string>
+    <string name="more_info_text">More Details</string>
+    <string name="header_text">Find Lovely Photos</string>
+    <string name="hint">Search...</string>
 </resources>
