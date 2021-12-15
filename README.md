@@ -22,8 +22,8 @@ The app is build with MVVM architecture to allow separation of concerns one bene
 allowing our data to not be destroyed over configuration changes
 
 ### Caching Strategy
-*MVVM architecture allowed the use of the Repository Pattern to act as mediator between th remote and local cache data
-*The Local cache is where the UI reads and observes data from. And using NetworkBoundResource its possible to set conditions where data is
+* MVVM architecture allowed the use of the Repository Pattern to act as mediator between th remote and local cache data
+* The Local cache is where the UI reads and observes data from. And using NetworkBoundResource its possible to set conditions where data is
 ```
 1.Data is saved to the local database
 2.Update old data with new data from Pixabay API
