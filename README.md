@@ -39,18 +39,18 @@ https://user-images.githubusercontent.com/72180010/145916765-dab037e5-6cb1-4c7c-
 
 ### Libraries
 * Navigation Components - To implement the Single Activity approach since fragments are lightweight than activities and allows easy passing of data between arguments in a type safe way
-* Retrofit - A Type-safe HTTP client for android and java which simplifies consuming RESTful APIs.
+* Retrofit - A Type-safe HTTP client for Android which simplifies consuming RESTFul APIs.
 * Gson - Converts JSON to Java/Kotlin objects.
-* OkHttp-logging-interceptor - Makes it easy to log OkHttp network traffic
+* OkHttp-logging-interceptor - Makes it easy to log OkHttp network responses and requests
 * Coil - Image loader library for android
 * Dagger Hilt - Used for Dependency Injection
 * Room - Persistence library making it easier to work with SQLite database
 * View Binding - Jetpack library allowing type safe binding of views
 * Livedata - Notifies Observer objects in the UI when underlying data changes.
 
-### License
-[MIT](https://choosealicense.com/licenses/mit/)
-
-### Author Info
+## Author Info
 * Twitter - [@BreensR](https://twitter.com/BreensR)
-* Linkedin - [LinkedIn: Breens Mbaka](https://www.linkedin.com/in/breens-mbaka-b447781b9/)
+* Linkedin - [LinkedIn: Breens Robert](https://www.linkedin.com/in/breens-mbaka/)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
