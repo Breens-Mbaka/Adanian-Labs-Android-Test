@@ -46,7 +46,7 @@ https://user-images.githubusercontent.com/72180010/145916765-dab037e5-6cb1-4c7c-
 * Dagger Hilt - Used for Dependency Injection
 * Room - Persistence library making it easier to work with SQLite database
 * View Binding - Jetpack library allowing type safe binding of views
-* ViewModel - Designed to store and manage UI data in a lifecycle aware fashion.
+* Livedata - Notifies Observer objects in the UI when underlying data changes.
 
 ### License
 [MIT](https://choosealicense.com/licenses/mit/)
