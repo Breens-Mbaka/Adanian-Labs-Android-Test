@@ -22,7 +22,7 @@ To run the project you should have the following tools
 <img src="/images/search.png" width="260">
 
 ### Architecture
-The app is build with MVVM architecture to allow separation of concerns one benefit being
+The app is build with MVVM Design Pattern to allow separation of concerns one benefit being
 allowing our data to not be destroyed over configuration changes
 
 ### Caching Strategy
