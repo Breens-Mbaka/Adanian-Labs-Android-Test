@@ -1,5 +1,5 @@
 # Imagely
-This app consumes The Pixabay Api to fetch and display a list of images, The app uses MVVM architecture to allow separation of the app components like fragments & activities from the data logic the reasons I leaned to this app architecture are:
+This app consumes The Pixabay Api to fetch and display a list of images, The app uses MVVM design pattern to allow separation of the app components like fragments & activities from the data logic the reasons I leaned to this app architecture are:
 * make the data survive device configuration changes
 * allow testability(unit test) of the data layer
 * improve codebase robustability by catching all edge error cases
